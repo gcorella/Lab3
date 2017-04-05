@@ -58,23 +58,25 @@ public class Hand {
 	}
 
 
-	public Hand EvaluateHand() {
+	public Hand EvaluateHand() throws HandException{
 
 		Hand h = null;
-
 		ArrayList<Hand> ExplodedHands = ExplodeHands(this);
 
-		for (Hand hand : ExplodedHands) {
-			hand = Hand.EvaluateHand(hand);
+
+		if (this.getCardsInHand().size() != 5){
+		throw new HandException(this);
 		}
 
-		//	Figure out best hand
+		for (Hand hand : ExplodedHands) {
+		hand = Hand.EvaluateHand(hand);
+		}
+
 		Collections.sort(ExplodedHands, Hand.HandRank);
-		
-		//	Return best hand.  
-		//	TODO: Fix...  what to do if there is a tie?
+
+
 		return ExplodedHands.get(0);
-	}
+		}
 
 	
 	//TODO: one hand is passed in, 1, 52, 2704, etc are passed back
