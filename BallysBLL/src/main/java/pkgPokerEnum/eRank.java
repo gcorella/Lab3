@@ -18,6 +18,7 @@ public enum eRank {
 
 	private int iRankNbr;
 
+	
 	private eRank(int iRankNbr) {
 		this.iRankNbr = iRankNbr;
 	}

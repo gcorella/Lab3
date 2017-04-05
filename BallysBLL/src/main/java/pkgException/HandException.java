@@ -9,6 +9,7 @@ public class HandException extends Exception {
 	public HandException(Hand hand) {
 		this.hand=hand;
 	}
+	
 
 	public Hand getHand()
 	{

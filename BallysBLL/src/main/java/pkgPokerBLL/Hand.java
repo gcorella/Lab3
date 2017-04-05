@@ -25,6 +25,7 @@ public class Hand {
 
 	}
 
+	
 	public void AddCardToHand(Card c) {
 		CardsInHand.add(c);
 	}

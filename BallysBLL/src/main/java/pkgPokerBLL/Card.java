@@ -12,6 +12,7 @@ public class Card implements Comparable {
 	private int iCardNbr;
 	private boolean Wild = false;
 
+	
 	public Card() {
 	}
 	
@@ -21,6 +22,7 @@ public class Card implements Comparable {
 		this.iCardNbr = iCardNbr;
 	}
 
+	
 	public Card(eSuit eSuit, eRank eRank, int iCardNbr) {
 		this.eRank = eRank;
 		this.eSuit = eSuit;

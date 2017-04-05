@@ -18,6 +18,7 @@ public class HandScore {
 	public eHandStrength getHandStrength() {
 		return HandStrength;
 	}
+	
 
 	public void setHandStrength(eHandStrength handStrength) {
 		HandStrength = handStrength;

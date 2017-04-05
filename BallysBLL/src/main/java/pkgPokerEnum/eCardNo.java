@@ -15,4 +15,5 @@ public enum eCardNo {
 		return CardNo;
 	}
 	
+	
 }

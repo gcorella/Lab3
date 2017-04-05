@@ -15,6 +15,7 @@ public enum eHandStrength {
 	FiveOfAKind(85, "isHandFiveOfAKind"){
 
 		public String toString() {
+			
 
 		return "Five of a Kind";
 		}

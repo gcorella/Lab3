@@ -13,6 +13,7 @@ public enum eSuit {
 
 	public int getiSuitNbr() {
 		return iSuitNbr;
+		
 	}
 	
 	
