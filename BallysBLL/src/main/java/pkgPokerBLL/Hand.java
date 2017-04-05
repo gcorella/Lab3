@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.UUID;
 
+import pkgException.HandException;
 import pkgPokerEnum.eCardNo;
 import pkgPokerEnum.eHandStrength;
 import pkgPokerEnum.eRank;
@@ -40,13 +41,13 @@ public class Hand {
 		CardsInHand.add(c);
 	}
 	
-	public static Hand PickBestHand(ArrayList<Hand> Hands) throws exHand {
+	public static Hand PickBestHand(ArrayList<Hand> Hands) throws HandException {
 		Hand best = Hands.get(0);
 		Hand temp = new Hand();
 		for(int i = 1; i < Hands.size(); i++){
 			temp = EvaluateHand(Hands.get(i));
 			if(HandRank.compare(best, temp) == 0){
-				throw new exHand();
+				throw new HandException(temp);
 			} if(HandRank.compare(best, temp) < 0){
 				best = EvaluateHand(Hands.get(i));
 			} 
@@ -198,6 +199,21 @@ public class Hand {
 		return isFlush;
 
 	}
+	
+	public static boolean isHandFiveOfAKind(Hand h, HandScore hs){
+		
+		boolean isHandFiveOfAKind = false;
+		
+		if (h.getCardsInHand().get(eCardNo.FirstCard.getCardNo()).geteRank() == h.getCardsInHand()
+				.get(eCardNo.FifthCard.getCardNo()).geteRank()) {
+			isHandFiveOfAKind = true;
+			hs.setHandStrength(eHandStrength.FiveOfAKind);
+			hs.setHiHand(h.getCardsInHand().get(eCardNo.FifthCard.getCardNo()).geteRank());
+			
+		}
+		
+		return isHandFiveOfAKind;
+}
 
 	public static boolean isHandRoyalFlush(Hand h, HandScore hs) {
 
